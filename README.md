@@ -477,4 +477,4 @@ MIT License. See [LICENSE](LICENSE) for details.
 
 ---
 
-Built with ❤️ by KKXDev
+Built with ❤️ by kkxdev
