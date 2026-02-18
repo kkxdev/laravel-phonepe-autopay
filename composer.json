@@ -1,0 +1,46 @@
+{
+    "name": "kkxdev/laravel-phonepe-autopay",
+    "description": "Production-grade PhonePe Payment Gateway SDK for Laravel with AutoPay (Recurring Payments) support",
+    "keywords": ["laravel", "phonepe", "payment", "gateway", "autopay", "recurring", "subscription"],
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "kkxdev"
+        }
+    ],
+    "require": {
+        "php": "^8.0|^8.1|^8.2|^8.3|^8.4",
+        "illuminate/support": "^8.0|^9.0|^10.0|^11.0|^12.0",
+        "illuminate/http": "^8.0|^9.0|^10.0|^11.0|^12.0",
+        "illuminate/cache": "^8.0|^9.0|^10.0|^11.0|^12.0",
+        "psr/log": "^1.0|^2.0|^3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5|^10.0|^11.0",
+        "orchestra/testbench": "^6.0|^7.0|^8.0|^9.0|^10.0",
+        "mockery/mockery": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kkxdev\\PhonePe\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kkxdev\\PhonePe\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kkxdev\\PhonePe\\Providers\\PhonePeServiceProvider"
+            ],
+            "aliases": {
+                "PhonePe": "Kkxdev\\PhonePe\\Facades\\PhonePe"
+            }
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
