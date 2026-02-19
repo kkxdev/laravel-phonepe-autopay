@@ -9,7 +9,7 @@ use Kkxdev\PhonePe\Exceptions\ValidationException;
 /**
  * Refund Request DTO
  */
-final readonly class RefundRequest
+final class RefundRequest
 {
     public function __construct(
         public string $merchantRefundId,

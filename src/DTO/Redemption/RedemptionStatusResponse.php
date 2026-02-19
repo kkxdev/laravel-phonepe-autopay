@@ -7,7 +7,7 @@ namespace Kkxdev\PhonePe\DTO\Redemption;
 /**
  * Redemption Status Response DTO
  */
-final readonly class RedemptionStatusResponse
+final class RedemptionStatusResponse
 {
     public function __construct(
         public string $merchantOrderId,

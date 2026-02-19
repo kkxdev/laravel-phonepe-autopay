@@ -11,7 +11,7 @@ use Kkxdev\PhonePe\Exceptions\ValidationException;
  *
  * Immutable value object for OAuth token responses.
  */
-final readonly class AuthTokenResponse
+final class AuthTokenResponse
 {
     public function __construct(
         public string $accessToken,

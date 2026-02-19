@@ -7,7 +7,7 @@ namespace Kkxdev\PhonePe\DTO\Refund;
 /**
  * Refund Status Response DTO
  */
-final readonly class RefundStatusResponse
+final class RefundStatusResponse
 {
     public function __construct(
         public string $merchantRefundId,
