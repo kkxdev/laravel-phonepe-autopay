@@ -99,10 +99,10 @@ try {
     // Redirect user to PhonePe authorization page
     return redirect($response['redirectUrl']);
 
-} catch (\Auw\PhonePe\Exceptions\ValidationException $e) {
+} catch (\Kkxdev\PhonePe\Exceptions\ValidationException $e) {
     // Handle validation errors
     $errors = $e->getErrors();
-} catch (\Auw\PhonePe\Exceptions\ApiException $e) {
+} catch (\Kkxdev\PhonePe\Exceptions\ApiException $e) {
     // Handle API errors
     $statusCode = $e->getStatusCode();
     $responseBody = $e->getResponseBody();
@@ -477,4 +477,4 @@ MIT License. See [LICENSE](LICENSE) for details.
 
 ---
 
-Built with ❤️ by KKXDev
+Built with ❤️ by kkxdev

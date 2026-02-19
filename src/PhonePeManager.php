@@ -23,12 +23,12 @@ use InvalidArgumentException;
 final class PhonePeManager
 {
     public function __construct(
-        private readonly AuthApiInterface $authApi,
-        private readonly SubscriptionApiInterface $subscriptionApi,
-        private readonly RedemptionApiInterface $redemptionApi,
-        private readonly RefundApiInterface $refundApi,
-        private readonly WebhookVerifierInterface $webhookVerifier,
-        private readonly string $version = 'v1'
+        private AuthApiInterface $authApi,
+        private SubscriptionApiInterface $subscriptionApi,
+        private RedemptionApiInterface $redemptionApi,
+        private RefundApiInterface $refundApi,
+        private WebhookVerifierInterface $webhookVerifier,
+        private string $version = 'v1'
     ) {}
 
     /**
