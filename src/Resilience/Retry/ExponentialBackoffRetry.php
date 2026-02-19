@@ -18,11 +18,11 @@ use Psr\Log\NullLogger;
 final class ExponentialBackoffRetry implements RetryPolicyInterface
 {
     public function __construct(
-        private readonly int $maxAttempts,
-        private readonly int $baseDelayMs,
-        private readonly int $maxDelayMs,
-        private readonly bool $jitter,
-        private readonly LoggerInterface $logger = new NullLogger()
+        private int $maxAttempts,
+        private int $baseDelayMs,
+        private int $maxDelayMs,
+        private bool $jitter,
+        private LoggerInterface $logger = new NullLogger()
     ) {}
 
     /**

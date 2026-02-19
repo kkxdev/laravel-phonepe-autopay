@@ -18,10 +18,10 @@ use Psr\Log\NullLogger;
 final class RefundApi implements RefundApiInterface
 {
     public function __construct(
-        private readonly HttpClientInterface $httpClient,
-        private readonly EndpointBuilder $endpointBuilder,
-        private readonly AuthApi $authApi,
-        private readonly LoggerInterface $logger = new NullLogger()
+        private HttpClientInterface $httpClient,
+        private EndpointBuilder $endpointBuilder,
+        private AuthApi $authApi,
+        private LoggerInterface $logger = new NullLogger()
     ) {}
 
     /**
