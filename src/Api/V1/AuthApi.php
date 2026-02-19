@@ -20,11 +20,11 @@ use Psr\Log\NullLogger;
 final class AuthApi implements AuthApiInterface
 {
     public function __construct(
-        private readonly HttpClientInterface $httpClient,
-        private readonly EndpointBuilder $endpointBuilder,
-        private readonly TokenCache $tokenCache,
-        private readonly AuthTokenRequest $credentials,
-        private readonly LoggerInterface $logger = new NullLogger()
+        private HttpClientInterface $httpClient,
+        private EndpointBuilder $endpointBuilder,
+        private TokenCache $tokenCache,
+        private AuthTokenRequest $credentials,
+        private LoggerInterface $logger = new NullLogger()
     ) {}
 
     /**
