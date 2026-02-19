@@ -15,9 +15,9 @@ use Illuminate\Contracts\Cache\Repository as CacheRepository;
 final class TokenCache
 {
     public function __construct(
-        private readonly CacheRepository $cache,
-        private readonly string $cacheKeyPrefix,
-        private readonly int $ttlBuffer
+        private CacheRepository $cache,
+        private string $cacheKeyPrefix,
+        private int $ttlBuffer
     ) {}
 
     /**

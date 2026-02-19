@@ -23,11 +23,11 @@ final class SimpleCircuitBreaker implements CircuitBreakerInterface
     private const CACHE_KEY_SUCCESSES = 'phonepe_circuit_breaker_successes';
 
     public function __construct(
-        private readonly CacheRepository $cache,
-        private readonly int $failureThreshold,
-        private readonly int $successThreshold,
-        private readonly int $cooldownSeconds,
-        private readonly LoggerInterface $logger = new NullLogger()
+        private CacheRepository $cache,
+        private int $failureThreshold,
+        private int $successThreshold,
+        private int $cooldownSeconds,
+        private LoggerInterface $logger = new NullLogger()
     ) {}
 
     /**

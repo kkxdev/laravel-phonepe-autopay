@@ -12,7 +12,7 @@ namespace Kkxdev\PhonePe\Support;
 final class EndpointBuilder
 {
     public function __construct(
-        private readonly EnvironmentResolver $environment
+        private EnvironmentResolver $environment
     ) {}
 
     /**

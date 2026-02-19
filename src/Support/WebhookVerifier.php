@@ -16,8 +16,8 @@ use Kkxdev\PhonePe\Exceptions\WebhookVerificationException;
 final class WebhookVerifier implements WebhookVerifierInterface
 {
     public function __construct(
-        private readonly string $username,
-        private readonly string $password
+        private $username,
+        private $password
     ) {}
 
     /**

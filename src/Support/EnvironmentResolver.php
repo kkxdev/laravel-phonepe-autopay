@@ -15,8 +15,8 @@ final class EnvironmentResolver
     private const PRODUCTION_BASE_URL = 'https://api.phonepe.com/apis';
 
     public function __construct(
-        private readonly string $environment,
-        private readonly array $urls
+        private string $environment,
+        private array $urls
     ) {}
 
     /**
