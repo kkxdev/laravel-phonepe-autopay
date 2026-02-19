@@ -130,7 +130,7 @@ class SubscriptionApiTest extends TestCase
 
         // Mock subscription cancel
         $mock->shouldReceive('send')
-            ->with('POST', Mockery::pattern('/\/subscriptions\/v2\/SUB_123\/cancel$/'), Mockery::type('array'), [])
+            ->with('POST', Mockery::pattern('/\/subscriptions\/v2\/SUB_123\/cancel$/'), Mockery::type('array'), null)
             ->andReturn([]);
 
         $this->app->instance(HttpClientInterface::class, $mock);

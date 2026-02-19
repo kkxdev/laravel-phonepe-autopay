@@ -33,27 +33,42 @@ final class LaravelHttpClientAdapter implements HttpClientInterface
     ): array {
         try {
             $request = Http::timeout($this->timeout)
-                ->connectTimeout($this->connectTimeout)
                 ->withHeaders($headers);
+
+            // connectTimeout is only available in Laravel 9+
+            if (method_exists($request, 'connectTimeout')) {
+                $request = $request->connectTimeout($this->connectTimeout);
+            }
 
             if ($contentType === 'form') {
                 $request = $request->asForm();
             }
 
-            $response = match (strtoupper($method)) {
-                'GET' => $request->get($url, $body ?? []),
-                'POST' => $request->post($url, $body ?? []),
-                'PUT' => $request->put($url, $body ?? []),
-                'PATCH' => $request->patch($url, $body ?? []),
-                'DELETE' => $request->delete($url, $body ?? []),
-                default => throw new \InvalidArgumentException("Unsupported HTTP method: {$method}"),
-            };
+            // Handle requests with no body (null) separately
+            // This is important for APIs like PhonePe cancel that expect no body
+            if ($body === null) {
+                $response = $request->send(strtoupper($method), $url);
+            } else {
+                $response = match (strtoupper($method)) {
+                    'GET' => $request->get($url, $body),
+                    'POST' => $request->post($url, $body),
+                    'PUT' => $request->put($url, $body),
+                    'PATCH' => $request->patch($url, $body),
+                    'DELETE' => $request->delete($url, $body),
+                    default => throw new \InvalidArgumentException("Unsupported HTTP method: {$method}"),
+                };
+            }
 
             if (!$response->successful()) {
                 throw ApiException::fromResponse(
                     $response->status(),
                     $response->json() ?? ['error' => $response->body()]
                 );
+            }
+
+            // Handle 204 No Content responses (e.g., subscription cancel)
+            if ($response->status() === 204) {
+                return [];
             }
 
             return $response->json() ?? [];

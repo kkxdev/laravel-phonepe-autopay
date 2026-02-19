@@ -22,8 +22,10 @@ final class SubscriptionApi implements SubscriptionApiInterface
         private HttpClientInterface $httpClient,
         private EndpointBuilder $endpointBuilder,
         private AuthApi $authApi,
-        private LoggerInterface $logger = new NullLogger()
-    ) {}
+        ?LoggerInterface $logger = null
+    ) {
+        $this->logger = $logger ?? new NullLogger();
+    }
 
     /**
      * {@inheritDoc}
@@ -106,8 +108,7 @@ final class SubscriptionApi implements SubscriptionApiInterface
         $this->httpClient->send(
             'POST',
             $url,
-            $this->getAuthHeaders(),
-            []
+            $this->getAuthHeaders()
         );
 
         $this->logger->info('Subscription cancelled successfully');

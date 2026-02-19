@@ -24,8 +24,10 @@ final class AuthApi implements AuthApiInterface
         private EndpointBuilder $endpointBuilder,
         private TokenCache $tokenCache,
         private AuthTokenRequest $credentials,
-        private LoggerInterface $logger = new NullLogger()
-    ) {}
+        ?LoggerInterface $logger = null
+    ) {
+        $this->logger = $logger ?? new NullLogger();
+    }
 
     /**
      * {@inheritDoc}
