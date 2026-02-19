@@ -197,6 +197,7 @@ class PhonePeServiceProvider extends ServiceProvider implements DeferrableProvid
                 redemptionApi: $app->make(RedemptionApiInterface::class),
                 refundApi: $app->make(RefundApiInterface::class),
                 webhookVerifier: $app->make(WebhookVerifierInterface::class),
+                environmentResolver: $app->make(EnvironmentResolver::class),
                 version: config('phonepe.api_version', 'v1')
             );
         });

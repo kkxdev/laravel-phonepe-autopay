@@ -13,6 +13,7 @@ use Kkxdev\PhonePe\Contracts\RedemptionApiInterface;
 use Kkxdev\PhonePe\Contracts\RefundApiInterface;
 use Kkxdev\PhonePe\Contracts\SubscriptionApiInterface;
 use Kkxdev\PhonePe\Contracts\WebhookVerifierInterface;
+use Kkxdev\PhonePe\Support\EnvironmentResolver;
 use InvalidArgumentException;
 
 /**
@@ -28,6 +29,7 @@ final class PhonePeManager
         private RedemptionApiInterface $redemptionApi,
         private RefundApiInterface $refundApi,
         private WebhookVerifierInterface $webhookVerifier,
+        private EnvironmentResolver $environmentResolver,
         private string $version = 'v1'
     ) {}
 
@@ -101,5 +103,25 @@ final class PhonePeManager
     public function verifyWebhook(string $authHeader, array $payload): \Auw\PhonePe\DTO\Webhook\WebhookEvent
     {
         return $this->webhookVerifier->verify($authHeader, $payload);
+    }
+
+    /**
+     * Get success redirect URL for current environment
+     *
+     * @return string
+     */
+    public function getSuccessUrl(): string
+    {
+        return $this->environmentResolver->getSuccessUrl();
+    }
+
+    /**
+     * Get failure redirect URL for current environment
+     *
+     * @return string
+     */
+    public function getFailureUrl(): string
+    {
+        return $this->environmentResolver->getFailureUrl();
     }
 }
