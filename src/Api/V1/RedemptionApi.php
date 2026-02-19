@@ -22,8 +22,10 @@ final class RedemptionApi implements RedemptionApiInterface
         private HttpClientInterface $httpClient,
         private EndpointBuilder $endpointBuilder,
         private AuthApi $authApi,
-        private LoggerInterface $logger = new NullLogger()
-    ) {}
+        ?LoggerInterface $logger = null
+    ) {
+        $this->logger = $logger ?? new NullLogger();
+    }
 
     /**
      * {@inheritDoc}
