@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Facade;
  * @method static WebhookVerifierInterface webhook()
  * @method static WebhookEvent verifyWebhook(string $authHeader, array $payload)
  * @method static string getVersion()
+ * @method static string getSuccessUrl()
+ * @method static string getFailureUrl()
  *
  * @see \Auw\PhonePe\PhonePeManager
  */
