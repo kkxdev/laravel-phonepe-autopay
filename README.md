@@ -1,8 +1,13 @@
 # PhonePe Payment Gateway SDK for Laravel
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PHP Version](https://img.shields.io/badge/PHP-8.0%2B-blue.svg)](https://www.php.net)
+[![Laravel](https://img.shields.io/badge/Laravel-8.x%20|%209.x%20|%2010.x%20|%2011.x%20|%2012.x-red.svg)](https://laravel.com)
+[![Latest Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/kkxdev/laravel-phonepe-autopay/releases)
 
 Production-grade PhonePe Payment Gateway SDK for Laravel with full **AutoPay (Recurring Payments)** support. Built with enterprise resilience patterns, comprehensive error handling, and complete test coverage.
+
+> **Version 1.0.0** - Initial stable release with full PhonePe AutoPay API coverage
 
 ## ✨ Features
 
@@ -99,10 +104,10 @@ try {
     // Redirect user to PhonePe authorization page
     return redirect($response['redirectUrl']);
 
-} catch (\Kkxdev\PhonePe\Exceptions\ValidationException $e) {
+} catch (\Auw\PhonePe\Exceptions\ValidationException $e) {
     // Handle validation errors
     $errors = $e->getErrors();
-} catch (\Kkxdev\PhonePe\Exceptions\ApiException $e) {
+} catch (\Auw\PhonePe\Exceptions\ApiException $e) {
     // Handle API errors
     $statusCode = $e->getStatusCode();
     $responseBody = $e->getResponseBody();
@@ -477,4 +482,4 @@ MIT License. See [LICENSE](LICENSE) for details.
 
 ---
 
-Built with ❤️ by kkxdev
+Built with ❤️ by KKXDev
