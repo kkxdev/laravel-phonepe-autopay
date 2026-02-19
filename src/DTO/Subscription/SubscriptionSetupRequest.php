@@ -9,7 +9,7 @@ use Kkxdev\PhonePe\Exceptions\ValidationException;
 /**
  * Subscription Setup Request DTO
  */
-final readonly class SubscriptionSetupRequest
+final class SubscriptionSetupRequest
 {
     public function __construct(
         public string $merchantOrderId,

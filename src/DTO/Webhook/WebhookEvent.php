@@ -7,7 +7,7 @@ namespace Kkxdev\PhonePe\DTO\Webhook;
 /**
  * Webhook Event DTO
  */
-final readonly class WebhookEvent
+final class WebhookEvent
 {
     public function __construct(
         public string $type,

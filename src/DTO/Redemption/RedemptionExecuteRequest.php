@@ -9,7 +9,7 @@ use Kkxdev\PhonePe\Exceptions\ValidationException;
 /**
  * Redemption Execute Request DTO
  */
-final readonly class RedemptionExecuteRequest
+final class RedemptionExecuteRequest
 {
     public function __construct(
         public string $merchantOrderId,

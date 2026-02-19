@@ -7,7 +7,7 @@ namespace Kkxdev\PhonePe\DTO\Subscription;
 /**
  * Subscription Status Response DTO
  */
-final readonly class SubscriptionStatusResponse
+final class SubscriptionStatusResponse
 {
     public function __construct(
         public string $merchantSubscriptionId,
