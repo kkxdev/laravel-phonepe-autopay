@@ -34,16 +34,16 @@ final class SubscriptionSetupRequest
         return new self(
             merchantOrderId: $data['merchantOrderId'] ?? '',
             amount: (int) ($data['amount'] ?? 0),
-            merchantSubscriptionId: $data['paymentFlow']['subscriptionDetails']['merchantSubscriptionId'] ?? '',
-            subscriptionType: $data['paymentFlow']['subscriptionDetails']['subscriptionType'] ?? 'RECURRING',
-            authWorkflowType: $data['paymentFlow']['subscriptionDetails']['authWorkflowType'] ?? 'TRANSACTION',
-            amountType: $data['paymentFlow']['subscriptionDetails']['amountType'] ?? 'FIXED',
-            maxAmount: (int) ($data['paymentFlow']['subscriptionDetails']['maxAmount'] ?? 0),
-            frequency: $data['paymentFlow']['subscriptionDetails']['frequency'] ?? '',
-            productType: $data['paymentFlow']['subscriptionDetails']['productType'] ?? 'UPI_MANDATE',
-            redirectUrl: $data['paymentFlow']['merchantUrls']['redirectUrl'] ?? '',
-            cancelRedirectUrl: $data['paymentFlow']['merchantUrls']['cancelRedirectUrl'] ?? '',
-            message: $data['paymentFlow']['message'] ?? null,
+            merchantSubscriptionId: $data['merchantSubscriptionId'],
+            subscriptionType: $data['subscriptionType'],
+            authWorkflowType: $data['authWorkflowType'],
+            amountType: $data['amountType'],
+            maxAmount: (int) ($data['maxAmount'] ?? 0),
+            frequency: $data['frequency'],
+            productType: $data['productType'],
+            redirectUrl: $data['redirectUrl'],
+            cancelRedirectUrl: $data['cancelRedirectUrl'],
+            message: $data['message'],
             metaInfo: $data['metaInfo'] ?? null
         );
     }
@@ -54,7 +54,7 @@ final class SubscriptionSetupRequest
             'merchantOrderId' => $this->merchantOrderId,
             'amount' => $this->amount,
             'paymentFlow' => [
-                'type' => 'SUBSCRIPTION_CHECKOUT_SETUP',
+                'type' => 'SUBSCRIPTION_CHECKOUT',
                 'merchantUrls' => [
                     'redirectUrl' => $this->redirectUrl,
                     'cancelRedirectUrl' => $this->cancelRedirectUrl,
