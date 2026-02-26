@@ -45,7 +45,8 @@ final class SubscriptionSetupRequest
             redirectUrl: $data['redirectUrl'],
             cancelRedirectUrl: $data['cancelRedirectUrl'],
             message: $data['message'],
-            metaInfo: $data['metaInfo'] ?? null
+            metaInfo: $data['metaInfo'] ?? null,
+            type: $data['type'] ?? null
         );
     }
 
