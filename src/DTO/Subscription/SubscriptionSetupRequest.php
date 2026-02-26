@@ -24,7 +24,8 @@ final class SubscriptionSetupRequest
         public string $redirectUrl,
         public string $cancelRedirectUrl,
         public ?string $message = null,
-        public ?array $metaInfo = null
+        public ?array $metaInfo = null,
+        public ?string $type = null
     ) {
         $this->validate();
     }
@@ -54,7 +55,7 @@ final class SubscriptionSetupRequest
             'merchantOrderId' => $this->merchantOrderId,
             'amount' => $this->amount,
             'paymentFlow' => [
-                'type' => 'SUBSCRIPTION_CHECKOUT',
+                'type' => $this->type ?? 'SUBSCRIPTION_CHECKOUT_SETUP',
                 'merchantUrls' => [
                     'redirectUrl' => $this->redirectUrl,
                     'cancelRedirectUrl' => $this->cancelRedirectUrl,
