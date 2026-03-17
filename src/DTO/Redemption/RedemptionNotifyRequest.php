@@ -15,7 +15,8 @@ final class RedemptionNotifyRequest
         public string $merchantOrderId,
         public int $amount,
         public string $merchantSubscriptionId,
-        public string $redemptionRetryStrategy = 'STANDARD'
+        public string $redemptionRetryStrategy = 'STANDARD',
+        public ?bool $autoDebit = null,
     ) {
         $this->validate();
     }
@@ -26,7 +27,8 @@ final class RedemptionNotifyRequest
             merchantOrderId: $data['merchantOrderId'] ?? '',
             amount: (int) ($data['amount'] ?? 0),
             merchantSubscriptionId: $data['merchantSubscriptionId'] ?? '',
-            redemptionRetryStrategy: $data['redemptionRetryStrategy'] ?? 'STANDARD'
+            redemptionRetryStrategy: $data['redemptionRetryStrategy'] ?? 'STANDARD',
+            autoDebit: $data['autoDebit'] ?? false,
         );
     }
 
@@ -36,10 +38,12 @@ final class RedemptionNotifyRequest
             'merchantOrderId' => $this->merchantOrderId,
             'amount' => $this->amount,
             'paymentFlow' => [
-                'type' => 'SUBSCRIPTION_REDEMPTION',
+                'type' => 'SUBSCRIPTION_CHECKOUT_REDEMPTION',
                 'merchantSubscriptionId' => $this->merchantSubscriptionId,
+                'redemptionRetryStrategy' => $this->redemptionRetryStrategy,
+                'autoDebit' => $this->autoDebit ?? false,
             ],
-            'redemptionRetryStrategy' => $this->redemptionRetryStrategy,
+
         ];
     }
 
