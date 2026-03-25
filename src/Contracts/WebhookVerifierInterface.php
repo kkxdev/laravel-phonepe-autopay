@@ -24,11 +24,22 @@ interface WebhookVerifierInterface
     public function verify(string $authHeader, array $payload): WebhookEvent;
 
     /**
+     * Verify webhook signature without throwing an exception
+     *
+     * @param string $authHeader Authorization header value
+     * @param array<string, mixed> $payload Webhook payload
+     * @return bool
+     */
+    public function isValid(string $authHeader, array $payload): bool;
+
+    /**
      * Compute expected signature for payload
+     *
+     * Algorithm: SHA256("{username}:{password}")
      *
      * @param string $username Webhook username
      * @param string $password Webhook password
-     * @return string SHA256 hash
+     * @return string SHA256 hex hash
      */
     public function computeSignature(string $username, string $password): string;
 }
