@@ -222,13 +222,43 @@ final class WebhookEvent
         return $this->payload['detailedErrorCode'] ?? null;
     }
 
+    /**
+     * Our internal transaction ID used as the subscription reference.
+     * For setup events this is nested under paymentFlow; falls back to root level.
+     */
     public function getMerchantSubscriptionId(): ?string
     {
-        return $this->payload['merchantSubscriptionId'] ?? null;
+        return $this->payload['paymentFlow']['merchantSubscriptionId']
+            ?? $this->payload['merchantSubscriptionId']
+            ?? null;
     }
 
+    /**
+     * PhonePe's subscription ID.
+     * For setup events this is nested under paymentFlow; falls back to root level.
+     */
     public function getSubscriptionId(): ?string
     {
-        return $this->payload['subscriptionId'] ?? null;
+        return $this->payload['paymentFlow']['subscriptionId']
+            ?? $this->payload['subscriptionId']
+            ?? null;
+    }
+
+    /**
+     * Full paymentFlow block.
+     * Contains merchantSubscriptionId, subscriptionId, frequency, amountType, etc.
+     */
+    public function getPaymentFlow(): array
+    {
+        return $this->payload['paymentFlow'] ?? [];
+    }
+
+    /**
+     * Payment details array (one entry per payment attempt).
+     * Each entry contains transactionId, paymentMode, amount, state, and rail (utr, vpa, umn).
+     */
+    public function getPaymentDetails(): array
+    {
+        return $this->payload['paymentDetails'] ?? [];
     }
 }
