@@ -13,6 +13,7 @@ use Kkxdev\PhonePe\Contracts\RedemptionApiInterface;
 use Kkxdev\PhonePe\Contracts\RefundApiInterface;
 use Kkxdev\PhonePe\Contracts\SubscriptionApiInterface;
 use Kkxdev\PhonePe\Contracts\WebhookVerifierInterface;
+use Kkxdev\PhonePe\DTO\Webhook\WebhookEvent;
 use Kkxdev\PhonePe\Support\EnvironmentResolver;
 use InvalidArgumentException;
 
@@ -98,9 +99,9 @@ final class PhonePeManager
      *
      * @param string $authHeader
      * @param array<string, mixed> $payload
-     * @return \Auw\PhonePe\DTO\Webhook\WebhookEvent
+     * @return WebhookEvent
      */
-    public function verifyWebhook(string $authHeader, array $payload): \Auw\PhonePe\DTO\Webhook\WebhookEvent
+    public function verifyWebhook(string $authHeader, array $payload): WebhookEvent
     {
         return $this->webhookVerifier->verify($authHeader, $payload);
     }

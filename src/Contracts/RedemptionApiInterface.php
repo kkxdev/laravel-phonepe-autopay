@@ -22,8 +22,8 @@ interface RedemptionApiInterface
      *
      * @param RedemptionNotifyRequest $request Notify request parameters
      * @return array<string, mixed> Response with orderId, state, expireAt
-     * @throws \Auw\PhonePe\Exceptions\ApiException On API errors
-     * @throws \Auw\PhonePe\Exceptions\ValidationException On validation errors
+     * @throws \KKxdev\PhonePe\Exceptions\ApiException On API errors
+     * @throws \KKxdev\PhonePe\Exceptions\ValidationException On validation errors
      */
     public function notify(RedemptionNotifyRequest $request): array;
 
@@ -34,8 +34,8 @@ interface RedemptionApiInterface
      *
      * @param RedemptionExecuteRequest $request Execute request parameters
      * @return array<string, mixed> Response with state (COMPLETED/FAILED/PENDING) and transactionId
-     * @throws \Auw\PhonePe\Exceptions\ApiException On API errors
-     * @throws \Auw\PhonePe\Exceptions\ValidationException On validation errors
+     * @throws \KKxdev\PhonePe\Exceptions\ApiException On API errors
+     * @throws \KKxdev\PhonePe\Exceptions\ValidationException On validation errors
      */
     public function execute(RedemptionExecuteRequest $request): array;
 
@@ -45,7 +45,7 @@ interface RedemptionApiInterface
      * @param string $merchantOrderId Merchant's redemption order ID
      * @param bool $includeDetails Include transaction details
      * @return RedemptionStatusResponse Redemption status response
-     * @throws \Auw\PhonePe\Exceptions\ApiException On API errors
+     * @throws \KKxdev\PhonePe\Exceptions\ApiException On API errors
      */
     public function getStatus(string $merchantOrderId, bool $includeDetails = true): RedemptionStatusResponse;
 }

@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static string getSuccessUrl()
  * @method static string getFailureUrl()
  *
- * @see \Auw\PhonePe\PhonePeManager
+ * @see \KKxdev\PhonePe\PhonePeManager
  */
 class PhonePe extends Facade
 {

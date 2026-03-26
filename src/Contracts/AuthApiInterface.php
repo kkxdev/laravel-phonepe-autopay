@@ -19,7 +19,7 @@ interface AuthApiInterface
      *
      * @param AuthTokenRequest $request Token request parameters
      * @return AuthTokenResponse Token response with access token and expiry
-     * @throws \Auw\PhonePe\Exceptions\AuthenticationException On auth failures
+     * @throws \KKxdev\PhonePe\Exceptions\AuthenticationException On auth failures
      */
     public function fetchToken(AuthTokenRequest $request): AuthTokenResponse;
 
@@ -27,7 +27,7 @@ interface AuthApiInterface
      * Get current valid access token (fetches new if expired)
      *
      * @return string Valid access token
-     * @throws \Auw\PhonePe\Exceptions\AuthenticationException On auth failures
+     * @throws \KKxdev\PhonePe\Exceptions\AuthenticationException On auth failures
      */
     public function getToken(): string;
 

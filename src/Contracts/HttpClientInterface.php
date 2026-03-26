@@ -21,8 +21,8 @@ interface HttpClientInterface
      * @param array<string, mixed>|null $body Request body (JSON serializable)
      * @param string $contentType Content type ('json' or 'form')
      * @return array<string, mixed> Parsed JSON response
-     * @throws \Auw\PhonePe\Exceptions\NetworkException On network failures
-     * @throws \Auw\PhonePe\Exceptions\ApiException On API errors (4xx, 5xx)
+     * @throws \Kkxdev\PhonePe\Exceptions\NetworkException On network failures
+     * @throws \Kkxdev\PhonePe\Exceptions\ApiException On API errors (4xx, 5xx)
      */
     public function send(
         string $method,
