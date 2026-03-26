@@ -20,8 +20,8 @@ interface SubscriptionApiInterface
      *
      * @param SubscriptionSetupRequest $request Subscription setup parameters
      * @return array<string, mixed> Response with orderId, state, redirectUrl
-     * @throws \Auw\PhonePe\Exceptions\ApiException On API errors
-     * @throws \Auw\PhonePe\Exceptions\ValidationException On validation errors
+     * @throws \KKxdev\PhonePe\Exceptions\ApiException On API errors
+     * @throws \KKxdev\PhonePe\Exceptions\ValidationException On validation errors
      */
     public function setup(SubscriptionSetupRequest $request): array;
 
@@ -31,7 +31,7 @@ interface SubscriptionApiInterface
      * @param string $merchantOrderId Merchant's order ID
      * @param bool $includeDetails Include payment attempt details
      * @return OrderStatusResponse Order status response
-     * @throws \Auw\PhonePe\Exceptions\ApiException On API errors
+     * @throws \KKxdev\PhonePe\Exceptions\ApiException On API errors
      */
     public function getOrderStatus(string $merchantOrderId, bool $includeDetails = true): OrderStatusResponse;
 
@@ -40,7 +40,7 @@ interface SubscriptionApiInterface
      *
      * @param string $merchantSubscriptionId Merchant's subscription ID
      * @return SubscriptionStatusResponse Subscription status response
-     * @throws \Auw\PhonePe\Exceptions\ApiException On API errors
+     * @throws \KKxdev\PhonePe\Exceptions\ApiException On API errors
      */
     public function getStatus(string $merchantSubscriptionId): SubscriptionStatusResponse;
 
@@ -49,7 +49,7 @@ interface SubscriptionApiInterface
      *
      * @param string $merchantSubscriptionId Merchant's subscription ID
      * @return void Returns 204 No Content on success
-     * @throws \Auw\PhonePe\Exceptions\ApiException On API errors
+     * @throws \KKxdev\PhonePe\Exceptions\ApiException On API errors
      */
     public function cancel(string $merchantSubscriptionId): void;
 }

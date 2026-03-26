@@ -17,7 +17,7 @@ interface CircuitBreakerInterface
      *
      * @param callable $operation Operation to execute
      * @return mixed Operation result
-     * @throws \Auw\PhonePe\Exceptions\CircuitBreakerException When circuit is open
+     * @throws \KKxdev\PhonePe\Exceptions\CircuitBreakerException When circuit is open
      * @throws \Throwable Original exception from operation
      */
     public function execute(callable $operation): mixed;

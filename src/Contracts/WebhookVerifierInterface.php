@@ -19,7 +19,7 @@ interface WebhookVerifierInterface
      * @param string $authHeader Authorization header value
      * @param array<string, mixed> $payload Webhook payload
      * @return WebhookEvent Parsed and validated webhook event
-     * @throws \Auw\PhonePe\Exceptions\WebhookVerificationException On signature verification failure
+     * @throws \KKxdev\PhonePe\Exceptions\WebhookVerificationException On signature verification failure
      */
     public function verify(string $authHeader, array $payload): WebhookEvent;
 
