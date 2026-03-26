@@ -21,8 +21,7 @@ final class RedemptionExecuteRequest
     public static function fromArray(array $data): self
     {
         return new self(
-            merchantOrderId: $data['merchantOrderId'] ?? '',
-            idempotencyKey: $data['idempotencyKey'] ?? null
+            merchantOrderId: $data['merchantOrderId'] ?? ''
         );
     }
 
