@@ -1,7 +1,6 @@
 {
     "name": "kkxdev/laravel-phonepe-autopay",
     "description": "Production-grade PhonePe Payment Gateway SDK for Laravel with AutoPay (Recurring Payments) support",
-    "version": "1.0.0",
     "keywords": ["laravel", "phonepe", "payment", "gateway", "autopay", "recurring", "subscription"],
     "license": "MIT",
     "type": "library",
