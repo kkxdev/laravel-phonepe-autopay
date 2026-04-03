@@ -104,10 +104,10 @@ try {
     // Redirect user to PhonePe authorization page
     return redirect($response['redirectUrl']);
 
-} catch (\Auw\PhonePe\Exceptions\ValidationException $e) {
+} catch (\Kkxdev\PhonePe\Exceptions\ValidationException $e) {
     // Handle validation errors
     $errors = $e->getErrors();
-} catch (\Auw\PhonePe\Exceptions\ApiException $e) {
+} catch (\Kkxdev\PhonePe\Exceptions\ApiException $e) {
     // Handle API errors
     $statusCode = $e->getStatusCode();
     $responseBody = $e->getResponseBody();
@@ -293,7 +293,7 @@ public function handleWebhook(Request $request)
 
         return response()->json(['status' => 'success'], 200);
 
-    } catch (\Auw\PhonePe\Exceptions\WebhookVerificationException $e) {
+    } catch (\Kkxdev\PhonePe\Exceptions\WebhookVerificationException $e) {
         // Signature verification failed
         return response()->json(['error' => 'Invalid signature'], 403);
     }
@@ -478,7 +478,7 @@ MIT License. See [LICENSE](LICENSE) for details.
 ## 🙏 Support
 
 - [Documentation](https://developer.phonepe.com/payment-gateway/autopay/standard-checkout)
-- [Issues](https://github.com/auw-tech/phonepe-laravel/issues)
+- [Issues](https://github.com/kkxdev/laravel-phonepe-autopay/issues)
 
 ---
 
