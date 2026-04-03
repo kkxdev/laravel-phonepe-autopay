@@ -477,7 +477,7 @@ MIT License. See [LICENSE](LICENSE) for details.
 
 ## 🙏 Support
 
-- [Documentation](https://developer.phonepe.com/payment-gateway/autopay/standard-checkout)
+- [Documentation](https://developer.phonepe.com/payment-gateway/autopay/standard-checkout/introduction)
 - [Issues](https://github.com/kkxdev/laravel-phonepe-autopay/issues)
 
 ---
