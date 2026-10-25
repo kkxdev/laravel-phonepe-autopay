@@ -3,11 +3,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PHP Version](https://img.shields.io/badge/PHP-8.0%2B-blue.svg)](https://www.php.net)
 [![Laravel](https://img.shields.io/badge/Laravel-8.x%20|%209.x%20|%2010.x%20|%2011.x%20|%2012.x%20|%2013.x-red.svg)](https://laravel.com)
-[![Latest Version](https://img.shields.io/badge/version-1.1.0-green.svg)](https://github.com/kkxdev/laravel-phonepe-autopay/releases)
+[![Latest Version](https://img.shields.io/badge/version-1.1.1-green.svg)](https://github.com/kkxdev/laravel-phonepe-autopay/releases)
 
 Production-grade PhonePe Payment Gateway SDK for Laravel with full **AutoPay (Recurring Payments)** support. Built with enterprise resilience patterns, comprehensive error handling, and complete test coverage.
 
-> **Version 1.1.0** - Adds Laravel 13 support
+> **Version 1.1.1** - Adds Laravel 13 support
 
 ## ✨ Features
 

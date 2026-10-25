@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-phonepe-autopay` will be documented in this file.
 
+## [1.1.1] - 2026-10-25
+
+### Changed
+- Re-release of 1.1.0 so Packagist picks up the final documentation (Laravel 13 install guide and release notes); no code changes
+
 ## [1.1.0] - 2026-10-25
 
 ### Added
