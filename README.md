@@ -2,12 +2,12 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PHP Version](https://img.shields.io/badge/PHP-8.0%2B-blue.svg)](https://www.php.net)
-[![Laravel](https://img.shields.io/badge/Laravel-8.x%20|%209.x%20|%2010.x%20|%2011.x%20|%2012.x-red.svg)](https://laravel.com)
-[![Latest Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/kkxdev/laravel-phonepe-autopay/releases)
+[![Laravel](https://img.shields.io/badge/Laravel-8.x%20|%209.x%20|%2010.x%20|%2011.x%20|%2012.x%20|%2013.x-red.svg)](https://laravel.com)
+[![Latest Version](https://img.shields.io/badge/version-1.1.0-green.svg)](https://github.com/kkxdev/laravel-phonepe-autopay/releases)
 
 Production-grade PhonePe Payment Gateway SDK for Laravel with full **AutoPay (Recurring Payments)** support. Built with enterprise resilience patterns, comprehensive error handling, and complete test coverage.
 
-> **Version 1.0.0** - Initial stable release with full PhonePe AutoPay API coverage
+> **Version 1.1.0** - Adds Laravel 13 support
 
 ## ✨ Features
 
@@ -21,7 +21,7 @@ Production-grade PhonePe Payment Gateway SDK for Laravel with full **AutoPay (Re
 - ✅ **Circuit Breaker** - Protection against cascading failures
 - ✅ **Immutable DTOs** - Type-safe request/response objects with validation
 - ✅ **PSR-3 Logging** - Comprehensive logging throughout
-- ✅ **Laravel 8.x | 9.x | 10.x | 11.x | 12.x** - Compatible with modern Laravel versions
+- ✅ **Laravel 8.x | 9.x | 10.x | 11.x | 12.x | 13.x** - Compatible with modern Laravel versions
 - ✅ **PHP 8.0+** - Modern PHP with strict types
 
 ## 📦 Installation
@@ -31,6 +31,31 @@ Install via Composer:
 ```bash
 composer require kkxdev/laravel-phonepe-autopay
 ```
+
+### Version Compatibility
+
+| Laravel | Minimum PHP | Testbench (dev) | PHPUnit (dev) |
+|---------|-------------|-----------------|---------------|
+| 8.x     | 8.0         | 6.x             | 9.5           |
+| 9.x     | 8.0         | 7.x             | 9.5 / 10      |
+| 10.x    | 8.1         | 8.x             | 10            |
+| 11.x    | 8.2         | 9.x             | 10 / 11       |
+| 12.x    | 8.2         | 10.x            | 11 / 12       |
+| 13.x    | 8.3         | 11.x            | 12            |
+
+Composer selects the matching Illuminate components automatically; no per-version configuration is needed. Package discovery registers the service provider and the `PhonePe` facade on every supported version.
+
+### Per-version notes
+
+- **Laravel 8 / 9 / 10 / 11 / 12**: install and publish as shown here; no changes needed.
+- **Laravel 13**: requires PHP 8.3+. Install and usage are identical:
+
+```bash
+composer require kkxdev/laravel-phonepe-autopay:^1.1
+php artisan vendor:publish --tag=phonepe-config
+```
+
+The API (`PhonePe::subscription()`, `PhonePe::redemption()`, etc.) is the same on all Laravel versions. Use `composer require kkxdev/laravel-phonepe-autopay:^1.0` on Laravel 8-12 if you prefer; `^1.1` works on all of them.
 
 Publish the configuration file:
 

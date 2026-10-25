@@ -23,8 +23,7 @@ class SubscriptionApiTest extends TestCase
         $this->mockHttpClient();
     }
 
-    /** @test */
-    public function it_can_setup_subscription(): void
+    public function test_it_can_setup_subscription(): void
     {
         $request = SubscriptionSetupRequest::fromArray([
             'merchantOrderId' => 'ORDER_123',
@@ -38,6 +37,7 @@ class SubscriptionApiTest extends TestCase
             'productType' => 'UPI_MANDATE',
             'redirectUrl' => 'https://example.com/success',
             'cancelRedirectUrl' => 'https://example.com/cancel',
+            'message' => 'Subscription setup',
         ]);
 
         $response = PhonePe::subscription()->setup($request);
@@ -48,8 +48,7 @@ class SubscriptionApiTest extends TestCase
         $this->assertEquals('PENDING', $response['state']);
     }
 
-    /** @test */
-    public function it_can_get_order_status(): void
+    public function test_it_can_get_order_status(): void
     {
         $status = PhonePe::subscription()->getOrderStatus('ORDER_123');
 
@@ -58,8 +57,7 @@ class SubscriptionApiTest extends TestCase
         $this->assertTrue($status->isCompleted());
     }
 
-    /** @test */
-    public function it_can_get_subscription_status(): void
+    public function test_it_can_get_subscription_status(): void
     {
         $status = PhonePe::subscription()->getStatus('SUB_123');
 
@@ -68,8 +66,7 @@ class SubscriptionApiTest extends TestCase
         $this->assertTrue($status->isActive());
     }
 
-    /** @test */
-    public function it_can_cancel_subscription(): void
+    public function test_it_can_cancel_subscription(): void
     {
         $this->expectNotToPerformAssertions();
 
@@ -130,7 +127,7 @@ class SubscriptionApiTest extends TestCase
 
         // Mock subscription cancel
         $mock->shouldReceive('send')
-            ->with('POST', Mockery::pattern('/\/subscriptions\/v2\/SUB_123\/cancel$/'), Mockery::type('array'), null)
+            ->with('POST', Mockery::pattern('/\/subscriptions\/v2\/SUB_123\/cancel$/'), Mockery::type('array'))
             ->andReturn([]);
 
         $this->app->instance(HttpClientInterface::class, $mock);
